@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск штрафов</title>
+</head>
+<body>
+    <h1>Поиск штрафов по номеру</h1>
+    <form method="POST">
+        <input type="text" name="number" placeholder="Введите номер" required>
+        <button type="submit">Поиск</button>
+    </form>
+
+    {% if fine %}
+        <h2>Результаты поиска:</h2>
+        <p>Номер: {{ fine[1] }}</p>
+        <p>Сумма: {{ fine[2] }} руб.</p>
+        <p>Описание: {{ fine[3] }}</p>
+    {% elif fine is not none %}
+        <p>Штраф не найден.</p>
+    {% endif %}
+</body>
+</html>
